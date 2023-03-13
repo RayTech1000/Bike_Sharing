@@ -1,0 +1,80 @@
+```{r}
+data = read.csv("day.csv")
+```
+```{r}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+summary(data)
+```
+```{r}
+str(data)
+```
+
+```{r}
+sum(is.na(data))
+```
+
+```{r}
+names(data)
+```
+```{r}
+hist(data$cnt)
+```
+
+```{r}
+library(psych)
+pairs.panels(data)
+```
+```{r}
+plot(data$cnt~data$season)
+```
+```{r}
+plot(data$cnt~data$temp)
+```
+```{r}
+plot(data$cnt~data$casual)
+```
+```{r}
+plot(data$cnt~data$registered)
+```
+
+
+```{r}
+plot(data$cnt~data$holiday)
+```
+```{r}
+plot(data$cnt~data$weekday)
+```
+
+```{r}
+nums = dplyr::select_if(data, is.numeric)
+```
+```{r}
+corr = cor(nums)
+```
+```{r}
+summary(corr)
+```
+
+```{r}
+test = lm(formula = data$cnt ~ data$temp)
+```
+```{r}
+plot(test, col = "red")
+```
+
+
+```{r}
+```
+
+```{r}
+test = lm(formula = data$cnt ~ data$atemp)
+```
+```{r}
+plot(test, col = "blue")
+```
+
